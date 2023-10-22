@@ -1,5 +1,6 @@
 package driver;
 
+import config.Project;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.Capabilities;
@@ -26,10 +27,8 @@ public class LocalMobileDriver implements DriverManager {
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
-//                .setDeviceName("RFCR90ZMNQP")
-//                .setPlatformVersion("13.0")
-                .setDeviceName("Pixel 7 API 30")
-                .setPlatformVersion("11.0")
+                .setDeviceName(Project.config.device())
+                .setPlatformVersion(Project.config.osVersion())
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
                 .setAppActivity("org.wikipedia.main.MainActivity");
